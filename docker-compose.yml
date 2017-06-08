@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  # See https://hub.docker.com/r/denvazh/gatling/
+  gatling:
+    container_name: yw_gatling
+    image: denvazh/gatling
+    volumes:
+      - ./conf:/opt/gatling/conf
+      - ./user-files:/opt/gatling/user-files
+      - ./results:/opt/gatling/results
+    networks:
+      - internal
+networks:
+  internal:
+    driver: bridge
